@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website Audit Report</title>
+    <link rel="icon" href="../icons/icon32.png" />
+    <link rel="stylesheet" href="../shared/theme.css" />
+    <link rel="stylesheet" href="report.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <div class="toolbar-inner">
+        <div id="toolbar-brand" class="toolbar-brand"></div>
+        <div class="toolbar-actions">
+          <button id="theme" class="btn btn-ghost" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <a class="btn btn-ghost" href="../options/options.html" target="_blank">Settings</a>
+          <button id="print" class="btn btn-ghost" type="button" title="Open the print dialog">Print</button>
+          <button id="download" class="btn btn-primary" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span class="btn-label">Download PDF</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="app" class="container">
+      <p class="loading muted">Loading report…</p>
+    </main>
+
+    <script src="../shared/vendor/qrcode.js"></script>
+    <script type="module" src="report.js"></script>
+  </body>
+</html>
