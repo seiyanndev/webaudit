@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to Sitelume</title>
+    <link rel="icon" href="../icons/icon32.png" />
+    <link rel="stylesheet" href="../shared/theme.css" />
+    <link rel="stylesheet" href="welcome.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="head">
+        <span class="logo" style="font-size: 27px">
+          <img class="logo-on-dark" src="../assets/brand/sitelume-mark-on-dark.png" alt="" />
+          <img class="logo-on-light" src="../assets/brand/sitelume-mark-on-light.png" alt="" />
+          <span>Site<span class="logo-lume">lume</span></span>
+        </span>
+      </header>
+
+      <section id="setup">
+        <h1>Let’s set up your API keys</h1>
+        <p class="lede">
+          Sitelume audits any website out of the box. Add two free Google keys to unlock its best features.
+          It takes about five minutes, and you only do it once.
+        </p>
+
+        <form id="form" novalidate>
+          <article class="step card">
+            <div class="step-head">
+              <span class="step-num">1</span>
+              <div>
+                <h2>Google Gemini <span class="tag">AI insights</span></h2>
+                <p class="muted">Writes an executive summary and fix steps tailored to each website, in plain business language.</p>
+              </div>
+            </div>
+            <details class="how">
+              <summary>How to get a free Gemini key</summary>
+              <ol>
+                <li>Open <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio → API keys</a> and sign in with your Google account.</li>
+                <li>Click <strong>Create API key</strong>. If asked, choose <strong>Create API key in new project</strong>.</li>
+                <li>Copy the key and paste it below. No credit card is needed.</li>
+              </ol>
+            </details>
+            <label class="field">
+              <span>Gemini API key</span>
+              <span class="input-row">
+                <input id="gemini" name="gemini" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your Gemini key" />
+                <a class="btn" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Get a key ↗</a>
+              </span>
+              <span class="status" id="gemini-status" aria-live="polite"></span>
+            </label>
+          </article>
+
+          <article class="step card">
+            <div class="step-head">
+              <span class="step-num">2</span>
+              <div>
+                <h2>Google PageSpeed Insights <span class="tag">Speed scores</span></h2>
+                <p class="muted">Adds Google’s mobile speed test and real-visitor Core Web Vitals, the numbers clients see on pagespeed.web.dev.</p>
+              </div>
+            </div>
+            <details class="how">
+              <summary>How to get a free PageSpeed key</summary>
+              <ol>
+                <li>Open <a href="https://developers.google.com/speed/docs/insights/v5/get-started#APIKey" target="_blank" rel="noopener">PageSpeed Insights → Get a key</a> and click <strong>Get a Key</strong>.</li>
+                <li>Pick or create a Google Cloud project. Google enables the PageSpeed Insights API for you.</li>
+                <li>Copy the key and paste it below. The free limit is 25,000 tests a day.</li>
+              </ol>
+            </details>
+            <label class="field">
+              <span>PageSpeed API key</span>
+              <span class="input-row">
+                <input id="psi" name="psi" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your PageSpeed key" />
+                <a class="btn" href="https://developers.google.com/speed/docs/insights/v5/get-started#APIKey" target="_blank" rel="noopener">Get a key ↗</a>
+              </span>
+              <span class="status" id="psi-status" aria-live="polite"></span>
+            </label>
+          </article>
+
+          <p class="privacy muted small">
+            Keys are stored only in this browser and sent only to Google. You can change them any time in Settings.
+          </p>
+
+          <div class="actions">
+            <button id="skip" class="link-btn" type="button">Skip for now</button>
+            <button id="save" class="btn btn-primary" type="submit">Save &amp; finish</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="done" class="done card" hidden>
+        <div class="done-icon" aria-hidden="true">✓</div>
+        <h1>You’re all set</h1>
+        <p class="lede" id="done-text"></p>
+        <ol class="next">
+          <li>Click the <strong>puzzle-piece icon</strong> in Chrome’s toolbar and <strong>pin Sitelume</strong> so it’s always one click away.</li>
+          <li>Open any website and click the Sitelume icon, then <strong>Run audit</strong>.</li>
+          <li>Add your agency logo and brand colour in <a href="../options/options.html">Settings</a> so reports carry your branding.</li>
+        </ol>
+      </section>
+    </main>
+    <script type="module" src="welcome.js"></script>
+  </body>
+</html>

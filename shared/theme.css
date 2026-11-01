@@ -1,0 +1,218 @@
+/* Sitelume design tokens shared by popup, report and options pages.
+   Dark is the brand default; light is used for the report's light toggle and for print. */
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/inter-latin-wght.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  /* Brand — --accent is overridden by the agency's brand colour (see applyBrand in ui.js) */
+  --brand: #5b5ef7;
+  --accent: var(--brand);
+  --accent-ink: #ffffff; /* text on accent backgrounds */
+  --accent-text: color-mix(in srgb, var(--accent) 62%, #ffffff); /* accent used as text on dark */
+  --bg: #09090b;
+  --surface: #111318;
+  --surface-2: #181b22;
+  --border: #272b35;
+  --text: #ffffff;
+  --muted: #a1a7b3;
+  --faint: #7a808d;
+  --good: #22c55e;
+  --average: #f59e0b;
+  --poor: #ef4444;
+  --sev-critical: #ef4444;
+  --sev-high: #f97316;
+  --sev-medium: #f59e0b;
+  --sev-low: #8b93a1;
+  --glow: 0 0 0 1px rgba(91, 94, 247, 0.35), 0 8px 32px rgba(91, 94, 247, 0.18);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --accent-text: color-mix(in srgb, var(--accent) 85%, #000000);
+  --bg: #f7f7f9;
+  --surface: #ffffff;
+  --surface-2: #f1f1f4;
+  --border: #e4e4e9;
+  --text: #09090b;
+  --muted: #52525b;
+  --faint: #71717a;
+  --good: #15803d;
+  --average: #b45309;
+  --poor: #dc2626;
+  --sev-critical: #dc2626;
+  --sev-high: #c2410c;
+  --sev-medium: #b45309;
+  --sev-low: #64748b;
+  --glow: 0 0 0 1px rgba(91, 94, 247, 0.25), 0 8px 24px rgba(91, 94, 247, 0.12);
+  --shadow: 0 1px 2px rgba(9, 9, 11, 0.04), 0 4px 16px rgba(9, 9, 11, 0.06);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--accent-text);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+.btn:hover {
+  background: var(--surface-2);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:focus-visible,
+.chip:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-primary:hover {
+  background: var(--accent);
+  filter: brightness(1.08);
+}
+.btn[disabled] {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tone-good { color: var(--good); }
+.tone-average { color: var(--average); }
+.tone-poor { color: var(--poor); }
+
+.sev {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.sev::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.sev-critical { color: var(--sev-critical); }
+.sev-high { color: var(--sev-high); }
+.sev-medium { color: var(--sev-medium); }
+.sev-low { color: var(--sev-low); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ───── Sitelume logo ───── */
+/* Mark plus the name set in type ("lume" in the brand colour). The mark has two
+   renditions: white brackets for dark surfaces, near-black for light ones. */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28em;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.logo img {
+  display: block;
+  height: 1.25em;
+  width: auto;
+}
+.logo-lume { color: var(--brand); }
+.logo .logo-on-light { display: none; }
+:root[data-theme='light'] .logo .logo-on-dark { display: none; }
+:root[data-theme='light'] .logo .logo-on-light { display: block; }
+@media print {
+  .logo .logo-on-dark { display: none; }
+  .logo .logo-on-light { display: block; }
+}

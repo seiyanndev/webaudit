@@ -1,0 +1,255 @@
+body {
+  width: 360px;
+  min-height: 420px;
+  overflow-x: hidden;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+.icon-link {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--muted);
+}
+.icon-link:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+main {
+  padding: 16px;
+  display: grid;
+  /* minmax(0, …) lets the column shrink below long unbreakable content instead of widening the popup */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.site {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+}
+.site img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  flex: none;
+}
+.site-text {
+  min-width: 0;
+  flex: 1;
+}
+/* Long page titles wrap to two lines, then truncate. */
+.site-title {
+  font-weight: 600;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+.site-host {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.run {
+  height: 48px;
+  font-size: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.run.is-running::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.progress {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+.progress li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--faint);
+  transition: color 0.2s;
+}
+.progress li::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  flex: none;
+}
+.progress li.active {
+  color: var(--text);
+  font-weight: 600;
+}
+.progress li.active::before {
+  border-color: var(--accent);
+  background: var(--accent);
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+.progress li.done {
+  color: var(--muted);
+}
+.progress li.done::before {
+  background: var(--good);
+  border-color: var(--good);
+}
+@keyframes pulse {
+  from {
+    opacity: 0.4;
+  }
+}
+
+.error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--poor) 12%, transparent);
+  color: var(--poor);
+  font-size: 13px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.toggle input {
+  accent-color: var(--accent);
+}
+
+.recent h2 {
+  margin: 4px 0 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+.recent-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.recent-list a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+}
+.recent-list a:hover {
+  background: var(--surface);
+}
+.pill {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  flex: none;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+.recent-meta {
+  min-width: 0;
+  display: grid;
+}
+.recent-host {
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.recent-date {
+  font-size: 12px;
+  color: var(--faint);
+}
+.empty {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* ───── first-run setup prompt ───── */
+.setup {
+  text-align: center;
+  padding: 28px 20px 24px;
+  justify-items: center;
+}
+.setup h1 {
+  margin: 4px 0 0;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.setup p {
+  margin: 0;
+  font-size: 14px;
+}
+.setup .run { width: 100%; }
+.setup-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  font-size: 24px;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.link-btn {
+  border: 0;
+  background: none;
+  padding: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.link-btn:hover { color: var(--text); text-decoration: underline; }

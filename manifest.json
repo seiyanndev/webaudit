@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Sitelume – Website Audits for Agencies",
+  "short_name": "Sitelume",
+  "version": "0.1.0",
+  "description": "Website health intelligence, client-ready in seconds. Audit speed, SEO, accessibility and security, then send a white-label report.",
+  "action": {
+    "default_title": "Run a Sitelume audit",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "options_page": "options/options.html",
+  "permissions": ["activeTab", "scripting", "storage", "unlimitedStorage", "debugger"],
+  "optional_host_permissions": ["<all_urls>"]
+}

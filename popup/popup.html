@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sitelume</title>
+    <link rel="stylesheet" href="../shared/theme.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <span class="logo" style="font-size: 19px">
+          <img class="logo-on-dark" src="../assets/brand/sitelume-mark-on-dark.png" alt="" />
+          <img class="logo-on-light" src="../assets/brand/sitelume-mark-on-light.png" alt="" />
+          <span>Site<span class="logo-lume">lume</span></span>
+        </span>
+      </div>
+      <a class="icon-link" href="../options/options.html" target="_blank" title="Settings & branding" aria-label="Settings & branding">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </a>
+    </header>
+
+    <main id="setup-ui" class="setup" hidden>
+      <div class="setup-icon" aria-hidden="true">🔑</div>
+      <h1>Finish setting up Sitelume</h1>
+      <p class="muted">
+        Add your free Google API keys to unlock <strong>AI insights</strong> and <strong>Google PageSpeed scores</strong>.
+        It takes about five minutes, and you only do it once.
+      </p>
+      <button id="setup-go" class="btn btn-primary run" type="button">Add API keys</button>
+      <button id="setup-skip" class="link-btn" type="button">Skip for now, audit without keys</button>
+    </main>
+
+    <main id="main-ui" hidden>
+      <section class="site card" id="site">
+        <img id="favicon" alt="" width="32" height="32" />
+        <div class="site-text">
+          <div id="site-title" class="site-title">Loading…</div>
+          <div id="site-host" class="muted site-host"></div>
+        </div>
+      </section>
+
+      <button id="run" class="btn btn-primary run" disabled>Run audit</button>
+
+      <ol id="progress" class="progress" hidden>
+        <li data-step="screenshot">Capturing screenshot</li>
+        <li data-step="collect">Analysing page</li>
+        <li data-step="links">Checking links</li>
+        <li data-step="psi">Running Google PageSpeed test</li>
+        <li data-step="score">Scoring results</li>
+        <li data-step="ai">Writing AI insights</li>
+      </ol>
+
+      <p id="error" class="error" role="alert" hidden></p>
+
+      <label class="toggle">
+        <input type="checkbox" id="external" />
+        <span>Also check external links</span>
+      </label>
+
+      <section class="recent">
+        <h2>Recent audits</h2>
+        <ul id="recent-list" class="recent-list"></ul>
+        <p id="recent-empty" class="muted empty">Your audits will appear here.</p>
+      </section>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
